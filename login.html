@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant-Doc</title>
+    <style>
+        *{
+            font-family: 'Poppins',sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+        .logo{
+            width: 60px;
+            margin-top: 10px;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+            transition: 0.1s ease-in;
+        }
+        .header{
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        ul{
+            margin-top: 30px;
+        }
+        ul li a:hover{
+            color: rgb(10, 207, 10);
+        }
+        .log{
+            height: 35px;
+            outline: none;
+            border: none;
+            font-weight: 501;
+            border-radius: 8px;
+            background:rgb(10, 207, 10);
+            border: 1px solid black;
+            font-size: 15px;
+            width: 100px;
+            margin-top: 25px;
+        }
+        ul li{
+            display: inline;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        p{
+            line-height: 20px;
+        }
+        .po{
+            font-size: 30px;
+            margin-bottom: 50px;
+            font-weight: 501;
+            display: flex;
+            align-self: center;
+            justify-self: center;
+        }
+        .plant-collection{
+            margin-top: 50px;
+            display: none;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0px 150px;
+            flex-direction: column;
+        }
+        .container{
+            display:none;
+            backdrop-filter: blur(20px);
+            width: 350px;
+            height: 400px;
+            border: 2px solid black;
+            max-width: 100%;
+            top:50%;
+            left: 50%;
+            position:absolute;
+            transform: translate(-50%,-50%);     
+            border-radius: 10px;
+        }
+        button{
+            cursor: pointer;
+        }
+        .about{
+            display: none;
+        }
+        .content{
+            display:flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .png{
+            width: 700px;
+        }
+        h1{
+            line-height: 50px;
+            font-size:38px;
+        }
+        .text{
+            margin-left: 120px;
+            display: flex;
+            justify-content:center;
+            align-items:flex-start;
+            flex-direction: column;
+        }
+        .a{
+            height: 40px;
+            outline: none;
+            border: none;
+            font-weight: 501;
+            border-radius: 8px;
+            background:rgb(10, 207, 10);
+            border: 1px solid black;
+            font-size: 15px;
+            width: 200px;
+            margin-top: 40px;
+        }
+        .mt-5{
+            margin-left: 130px;
+            margin-top: 30px;
+            font-size: 25px;
+        }
+        .form-group{
+            margin-left: 50px;
+            margin-top: 30px;
+        }
+        .cl{
+            margin-top: 20px;
+            margin-left: 3px;
+        }
+        .cp label{
+            font-size: 18px;
+        }
+        .cl label{
+            font-size: 18px;
+        }
+        .form-control{
+            outline: none;
+            border: 2px solid black;
+            width:225px;
+            height: 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 15px;
+            padding: 5px 10px;
+        }
+        hr{
+            width: 180px;
+            border-radius: 20px;
+            background: black;
+            height: 3px;
+            margin-top: 10px;
+            margin-left: 78px;
+        }
+        #r{
+            margin-left: 53px;
+            margin-top: 15px;
+            outline: none;
+        }
+        #r .o{
+            font-size: 12px;
+        }
+        .ui{
+           margin-bottom: 30px;
+           font-size: 20px;
+           line-height: 30px;
+        }
+        .btnbtn-primary{
+            width: 250px;
+            padding: 10px 20px;
+            margin-top: 25px;
+            margin-left: 50px;
+            border: 2px solid black;
+            outline: none;
+            font-size: 16px;
+            background:rgb(10, 207, 10);
+            border-radius: 10px;
+            font-weight: 501;
+        }
+        h1{
+            margin-bottom: 10px;
+        }
+        .step-title {
+            font-size: 1.5em;
+            color:rgb(7, 119, 7);
+            margin-bottom: 25px;
+        }
+        .hi{
+            margin-bottom: 30px;
+        }
+        .about-container {
+          padding: 20px;
+       }
+
+       .footer {
+          text-align: center;
+          background-color: #f1f1f1;
+          position: fixed;
+          bottom: 0;
+          width: 100%;
+       }
+       .op{
+        font-size: 17px;
+        color: rgba(0, 0, 0, 0.795);
+        padding:0px 80px ;
+        line-height: 25px;
+       }
+    </style>
+</head>
+<body>
+    <div class="ho">
+    <div class="header">
+        <img src="/static/pngwing.com(1).png" class="logo"alt="">
+        <div class="menu">
+            <ul>
+                <li>
+                      <a href="">Home</a>
+                </li>
+                <li>
+                    <a href="" onclick="preventDefault(event);plant()">Project Implementation</a>
+                </li>
+                <li>
+                    <a href=""  onclick="preventDefault(event);myfunci()">About Us</a>
+                </li>
+            </ul>
+        </div>
+        <button class="log" onclick="preventDefault(event);myfunc()">Login</button>
+    </div>
+    <div class="content">
+        <div class="text"><h1>Find the Disease,<br>Recover and Cure your Plants</h1>
+            <p >We have build a Trained Model to Detect the disease infected in the various plant and tree leaves and also provide recoveration Process of that particular Disease.Our Model Trained by over 60000 Training and Testing images.</p>
+        <button class="a" onclick="preventDefault(event);myfunc()">Try It Now</button></div>
+            <img class="png" src="/static/green-apple-with-green-leaf-and-cut-slice-with-seed-isolated-on-white-background-free-photo.jpg" alt="">
+    </div></div>
+    <div class="container">
+        <form method="POST" action="/login">
+            <h2 class="mt-5">LOGIN</h2>
+            <hr>
+            <div class="form-group">
+                <div class="cp">
+                    <label for="username">Username:</label> <br>
+                    <input type="text" class="form-control" id="username" name="username"  required>
+                </div>
+                <div class="cl">
+                    <label for="password">Password:</label> <br>
+                <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+            </div>
+            <input type="checkbox" name="" id="r"> save my login credials <br>
+            <button type="submit" class="btnbtn-primary">Login</button>
+        </form>
+    </div>
+    <div class="plant-collection">
+        <h2 class="po">Step-by-Step Implementation of Our Project</h2>
+
+        <p class="ui">Our Plant Disease Detection System is designed to aid farmers and plant enthusiasts in detecting and diagnosing plant diseases at an early stage. This system uses a deep learning model to analyze images of plant leaves and predict whether a plant is healthy or diseased. Below is a detailed guide on the key steps involved in building and deploying this system.</p>
+    
+        <div class="hi"><h3 class="step-title">1. Problem Definition and Objective</h3>
+        <p class="ui">The objective of this project is to develop a solution for detecting plant diseases using image classification techniques. The project focuses on training a deep learning model to identify diseases in tomato, apple, and sugarcane plants, among others. Early detection allows farmers to implement timely remedies, reducing crop loss and improving yield.</p>
+    </div>
+        <div class="hi"><h3 class="step-title">2. Data Collection and Dataset Preparation</h3>
+        <p class="ui">Data is the backbone of any machine learning project. For this project, we sourced images of plant leaves with and without diseases from publicly available datasets, such as the <em>PlantVillage</em> dataset. These images are labeled with the type of disease or 'healthy' status, which is crucial for training the model.</p>
+        <p class="ui">The dataset includes a wide range of plant diseases such as <strong>Tomato Bacterial Spot, Tomato Late Blight, Tomato Leaf Mold,</strong> and more. All images were resized to a standard resolution of 256x256 pixels to ensure uniformity for the model input.</p>
+    </div>
+        <div class="hi"><h3 class="step-title">3. Image Preprocessing and Augmentation</h3>
+        <p class="ui">Image preprocessing is essential for improving the performance of the model. We normalized all pixel values in the images to lie between 0 and 1 by dividing by 255. Additionally, we applied several data augmentation techniques such as random rotations, zooms, and flips to increase the diversity of the training set and help the model generalize better.</p>
+        <p class="ui">This augmentation step increases the amount of training data by artificially generating variations of the existing images, making the model more robust.</p>
+    </div>
+        <div class="hi"><h3 class="step-title">4. Model Design and Architecture</h3>
+        <p class="ui">The deep learning model we used is a <strong>Convolutional Neural Network (CNN)</strong>, which is highly effective in image classification tasks. Our CNN architecture includes multiple convolutional layers that extract important features from the input images, followed by pooling layers to reduce spatial dimensions. Finally, a dense (fully connected) layer and softmax activation function output the disease class with the highest probability.</p>
+        <p class="ui">The model's architecture consists of: <br><br>
+                <strong>Input Layer</strong>: Takes in 256x256 RGB images.<br>
+                <strong>Convolutional Layers</strong>: Extract image features such as edges, textures, and patterns.<br>
+                <strong>MaxPooling Layers</strong>: Reduce the spatial dimensions of feature maps, improving efficiency.<br>
+                <strong>Dense Layers</strong>: Process the features to make predictions.<br>
+                <strong>Dropout Layers</strong>: Prevent overfitting by randomly turning off neurons during training.<br>
+                <strong>Softmax Output Layer</strong>: Outputs the probability of each disease class.<br>
+        </p>
+    </div>
+        <div class="hi"><h3 class="step-title">5. Model Training and Evaluation</h3>
+        <p class="ui">We trained the CNN model on 80% of the dataset and validated it on the remaining 20%. The training process involved adjusting the model's weights to minimize the categorical cross-entropy loss, using the Adam optimizer. We also applied early stopping and model checkpointing to avoid overfitting and save the best model during training.</p>
+        <p class="ui">After training, the model achieved high accuracy on both the training and validation sets. The trained model was saved in Keras format for later use in the web application.</p>
+    </div>
+       <div class="hi"> <h3 class="step-title">6. Flask Web Application Development</h3>
+        <p class="ui">We built a web application using the Flask framework to allow users to upload images of plant leaves and receive real-time predictions. The application includes a login page for authentication, a file upload interface for image submission, and a results page where the predicted disease and confidence level are displayed.</p>
+        <p class="ui">The web app also provides recommendations for treating the predicted disease based on agricultural best practices. The Flask app runs on a local server and interacts with the pre-trained Keras model to process the uploaded images.</p>
+    </div>
+      <div class="hi"> <h3 class="step-title">7. Integration with Zapier Chatbot</h3>
+        <p class="ui">To enhance user interaction, we integrated a Zapier-powered chatbot into the web application. This chatbot assists users in real-time by answering common questions related to plant diseases and offering tips on disease management. The chatbot can also guide users through the process of uploading images and interpreting results.</p>
+    </div> 
+       <div class="hi"> <h3 class="step-title">8. Plant Collection Page and Disease Information</h3>
+        <p class="ui">We created a "Plant Collection" page on the website that displays all the plants and diseases covered by the model. For each plant, users can view detailed information about the diseases the model can detect, along with sample images and disease descriptions.</p>
+    </div>
+       <div class="hi"> <h3 class="step-title">9. Disease Recommendations and Remedies</h3>
+        <p class="ui">When a disease is detected, the system not only provides the disease name but also offers two key recommendations for managing the disease. These recommendations are sourced from agricultural guidelines and aim to help farmers mitigate the effects of the disease and promote plant recovery.</p>
+    </div>
+      <div class="hi"> <h3 class="step-title">10. Testing and Deployment</h3>
+        <p class="ui">After developing the system, we rigorously tested it using a variety of plant images to ensure accurate predictions and a smooth user experience. The final step was deploying the web application on a cloud server, making it accessible to users globally. The system is now ready to help farmers and plant owners detect diseases in their crops and take timely action.</p>
+    </div> 
+      <div class="hi"> <h3 class="step-title">11. Future Enhancements</h3>
+        <p class="ui">Future enhancements to this project will focus on expanding the dataset to cover more plant species and diseases, improving prediction accuracy, and integrating IoT sensors for real-time plant health monitoring. We also plan to add a feature that allows users to track the health of their plants over time and receive periodic health reports.</p></div> 
+    </div>
+    <div class="about"> <div class="about-container">
+        <center><h1 style="margin-top: 100px;margin-bottom: 30px;">About Us</h1>
+        <p class="op">We are Sivakumar N and Vijay NK, students of Electronics and Communication Engineering at Velammal College of Engineering and Technology. Our passion for technology and agriculture inspired us to develop this project.</p>
+        <p class="op">This project aims to assist farmers and plant enthusiasts in detecting plant diseases through a deep learning model. We believe that our work can contribute to improving agricultural practices and ensuring better crop health.</p>
+        <p class="op">Thank you for visiting our website, and we hope our project helps you in your agricultural endeavors!</p></center>
+    </div>
+    </div>
+    <footer class="footer">
+        <p style="font-size: 12px;">&copy; 2024 Plant-Doc. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        function myfunc() {
+            document.querySelector(".container").style.display = 'block';
+            document.querySelector(".content").style.display = 'none';
+            document.querySelector(".plant-collection").style.display = 'none';
+            document.querySelector(".about").style.display = 'none';
+        }
+        function myfunci(){
+            document.querySelector(".about").style.display = 'block';
+            document.querySelector(".container").style.display = 'none';
+            document.querySelector(".plant-collection").style.display = 'none';
+            document.querySelector(".content").style.display = 'none';
+        }
+        function plant() {
+            document.querySelector(".plant-collection").style.display = 'flex';
+            document.querySelector(".content").style.display = 'none';
+            document.querySelector(".about").style.display = 'none';
+            document.querySelector(".container").style.display = 'none';
+        }
+        function preventDefault(event) {
+            event.preventDefault();
+        }
+    </script>
+    
+</body>
+</html>

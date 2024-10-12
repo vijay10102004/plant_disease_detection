@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Disease Detection</title>
+    <style>
+        *{
+            font-family: 'Poppins',sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+        .logo{
+            width: 60px;
+            margin-top: 10px;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+            transition: 0.1s ease-in;
+        }
+        .header{
+            display: flex;
+            justify-content: space-around;
+        }
+        ul{
+            margin-top: 30px;
+        }
+        ul li a:hover{
+            color: rgb(10, 207, 10);
+        }
+        .log{
+            height: 35px;
+            outline: none;
+            border: none;
+            font-weight: 501;
+            border-radius: 8px;
+            background:rgb(10, 207, 10);
+            border: 1px solid black;
+            font-size: 15px;
+            width: 100px;
+            margin-top: 25px;
+        }
+        ul li{
+            display: inline;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        h1{
+            line-height: 50px;
+            font-size:38px;
+        }
+        .g{
+            display: none;
+        }
+        .box{
+           border: 2px solid black;
+            width: 300px;
+            height: 330px;
+            border-radius: 10px;
+            margin-top: 100px;
+        }
+        .d{
+            width: 160px;
+            margin-left: 20px;
+            background-color:white;
+            padding: 20px;
+            border-radius: 10px;
+            height: 150px;
+        }
+        label{
+            top: 50px;
+            position: relative;
+            margin-left: 30px;
+            font-weight: 501;
+            padding: 10px 90px;
+            background:rgb(10, 207, 10);
+            border: 1px solid black;
+            border-radius: 10px;
+        }
+        .l{position: relative;
+            top: 35%;
+            left: 50%;
+            width: 240px;
+            border-radius: 10px;
+            background-color:white;
+            height: 220px;
+            transform: translate(-50%,-50%);
+            margin-top: 10px;
+        }
+        .u{
+            margin-left: 21px;
+            position: relative;
+            bottom: 10px;
+            font-size: 14px;
+            font-weight: 501;
+        }
+        h4{
+            margin-left: 70px;
+            position: relative;
+            bottom: 30px;
+        }
+        .pred{
+            margin-top: 4px;
+            padding: 10px 15px;
+            border: 2px solid black;
+            width: 270px;
+            border-radius: 10px;
+        }
+        .rt{
+            font-weight: 501;
+            padding: 10px 90px;
+            background:rgb(10, 207, 10);
+            border: 1px solid black;
+            font-size: 17px;
+            margin-left: 10px;
+            border-radius: 10px;
+        }
+        .n{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        hr{
+            width: 350px;
+            border-radius: 20px;
+            background: black;
+            height: 3px;
+            margin-top: 10px;
+        }
+        .ca{
+            margin-top: 50px;
+            padding: 30px 60px;
+            width: 560px;
+            border-radius: 10px;
+            border: 2px solid black;
+            margin-bottom: 50px;
+        }
+        .rtr{
+            margin-top: 5px;
+            color: black;
+            font-weight: 501;
+        }
+        .k{
+            border-radius: 10px;
+            border: 3px solid black;
+        }
+        .kop{
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .dr{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .cen{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        h3{
+            margin-top: 30px;
+        }
+        .y{
+            margin-top: 15px;
+            font-weight: 501;
+            font-size: 17px;
+            line-height: 30px;
+        }
+        .t{
+            margin-left: 0px;
+            width: 155px;
+        }
+        .footer {
+          text-align: center;
+          padding: 5px;
+          background-color: #f1f1f1;
+          position: fixed;
+          bottom: 0;
+          width: 100%;
+       }
+        .chatbot-button {
+            position: fixed;
+            bottom: 20px;  
+            right: 20px;  
+            background-color:rgb(10, 207, 10);
+            color: white;
+            padding: 10px 15px; 
+            border: none; 
+            border-radius: 5px;
+            cursor: pointer; 
+            box-shadow: 0 0 10px rgba(0,0,0,0.3); 
+            z-index: 1000; 
+        }
+        .log{
+            width: 100px;
+            background:rgb(10, 207, 10);
+            border: 1px solid black;
+            font-size: 14px;
+        }
+        label{
+            cursor: pointer;
+        }
+        button{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="/static/pngwing.com(1).png" class="logo"alt="">
+        <div class="menu">
+            <ul>
+                <li>
+                      <a href="Login.html">Home</a>
+                </li>
+                <li>
+                    <a href="">Project Implementation</a>
+                </li>
+                <li>
+                    <a href="">About Us</a>
+                </li>
+            </ul>
+        </div>
+        <a href="{{ url_for('logout') }}">
+        <button class="log" >Logout</button></a>
+    </div>
+    <div class="cen">
+        <form method="POST" enctype="multipart/form-data">
+            <div class="box">
+                <div class="l">
+                    <img src="/static/upload-icon-20624.png" class="d" alt=""><h4>Upload Image</h4><p class="u">Size should be less than 2MB</p>
+                </div>
+            
+            <input type="file" name="file"class='g' accept="image/*" id="ks" required>
+            <label for="ks">Upload</label>
+            </div>
+            <div class="pred"><button class="rt" type="submit">Predict</button></div>
+        </form>
+    </div>
+    {% if prediction is not none %}
+    <div class="dr"><div class="ca">
+        <div class="n"> <h2>Prediction: {{ prediction }}</h2><p class="rtr">(Confidence: {{ confidence }}%)</p> <hr></div>
+         <div class="kop"><img src="{{ image_path }}" alt="Uploaded Image" class="k" style="max-width: 300px;"></div>
+         <h3>Steps to Recover:</h3><hr class="t">
+         {% for rec in recommendations %}
+         <p class="y">{{ rec }}</p>
+         {% endfor %}
+     </div>
+    {% endif %}
+    <button class="chatbot-button" onclick="window.open('https://plant-disease.zapier.app','_blank')">
+        Need Help?
+    </button>
+    <div class="footer">
+        <p style="font-size: 12px;">&copy; 2024 Sivakumar N and Vijay NK. All rights reserved.</p>
+    </div></div>
+</body>
+</html>
